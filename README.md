@@ -15,7 +15,7 @@ A streamlined system crafted to elevate the book-reading journey while preservin
   - List and Select from my reading sessions :  Through this Feature the customer can see all detials about his last reading sessions and each reading session has these information (Book name , current page,last Time and Date when customer was reading this book ),Then the customer can enter the number of session  to continue reading the book and a menu  from three choices (1- Next page , 2- previous page,3-Stop reading )will be apeared to the customer to make it navigate the book , Once he choose "Stop reading" the session will be saved to its reading sessions history with consieder current Time and Date . 
   - List and Select from available Books : Through this feature the customer can see all books that  have been added from the Admins , and open new reading session by enter the number of the book which he want to read , and then can navigate the book and once he choose "Stop reading" the session of this book will be saved to its reading sessions history .
   - Logout : The customer can return to the Start menu of the system and logout from his account .
-### Future features 
+### Upcoming features 
 - I will  make Admins activate new signup before the customers use the system .
 - I will make a customer can clear it's all reading sessions history .
 - I will make the system a file based system .
@@ -23,4 +23,12 @@ A streamlined system crafted to elevate the book-reading journey while preservin
 - Finally I have many ideas that can make the system more bigger and complex.
 ### UML (class diagram)
 ![onlinereadersystemuml](https://github.com/mohamed-khalaf9/OnlineReaderSystem/assets/149758845/b6a4cab0-3867-44b2-881a-0e8f136dd98a)
+
+# Demo : 
+LinkedIn Post : 
+
+
+
+
+
 
