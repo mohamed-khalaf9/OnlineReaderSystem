@@ -75,7 +75,7 @@ const std::vector<BookReadingSession*> & User::get_reading_sessions()const{
 void User::update_reading_sessions(Book* oldbook,Book* updatedbook){
     for(auto &b:reading_sessions)
     {
-        if(b->get_book()==oldbook)
+        if(b->get_book()->get_ISBN()==oldbook->get_ISBN())
         b->setBook(updatedbook);
     }
 
