@@ -22,7 +22,7 @@ A streamlined system crafted to elevate the book-reading journey while preservin
 - I will Provide parallel access sessions
 - Finally I have many ideas that can make the system more bigger and complex.
 ### UML (class diagram)
-![onlinereadersystemuml](https://github.com/mohamed-khalaf9/OnlineReaderSystem/assets/149758845/b6a4cab0-3867-44b2-881a-0e8f136dd98a)
+![OnlineReaderSystempic](https://github.com/mohamed-khalaf9/OnlineReaderSystem/assets/149758845/aa83e053-d25f-405f-94b5-11ab18a4c77d)
 
 # Demo : 
 LinkedIn Post : 
