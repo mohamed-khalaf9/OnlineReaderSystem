@@ -49,19 +49,19 @@ void AdminView::AddBook(){
 
 }
 void AdminView::UpdateBook(){
-    std::string ISBN;
+    std::string OldISBN;
     std::cout << "Enter ISBN of the book to update: ";
-    std::cin >> ISBN;
+    std::cin >> OldISBN;
 
-    Book* existedBook = bookManager.get_book_by_its_isbn(ISBN);
-    if (existedBook) {
+    Book* existedBook = bookManager.get_book_by_its_isbn(OldISBN);
+    if (!existedBook->get_ISBN().empty()) {
         Book* updatedBook = new Book();
         updatedBook->readBook();
 
         
-        std::string newISBN = updatedBook->get_ISBN();
+       
 
-        if (!bookManager.UpdateBook(ISBN, updatedBook, newISBN)) {
+        if (!(bookManager.UpdateBook(OldISBN, updatedBook))) {
             std::cout << "Failed to update book. Invalid ISBN.\n";
             return;
         }
@@ -72,9 +72,9 @@ void AdminView::UpdateBook(){
             u->update_reading_sessions(existedBook, updatedBook);
         }
 
-        delete updatedBook;  
+      
     } else {
-        std::cout << "Book with ISBN " << ISBN << " not found.\n";
+        std::cout << "Book with ISBN " << OldISBN << " not found.\n";
     }
 
 }
@@ -111,16 +111,17 @@ void AdminView::GetBookInformation(){
     std::string isbn;
     std::cout<<"Enter ISBN of the book : ";
     std::cin>>isbn;
-    Book* booktobedispalyed;
+    Book* booktobedispalyed= new Book();
     booktobedispalyed=bookManager.get_book_by_its_isbn(isbn);
     if(booktobedispalyed)
     {
         std::cout<<"ISBN : "<<booktobedispalyed->get_ISBN()<<"\n";
         std::cout<<"Title : "<<booktobedispalyed->get_title()<<"\n";
         std::cout<<"Author Name : "<<booktobedispalyed->get_author()<<"\n";
-        std::cout<<"Total Pages: "<<booktobedispalyed->get_pages().size()<<"\n";
+        std::cout<<"Total Pages: "<<(booktobedispalyed->get_pages().size())<<"\n";
     
     }
+    
     else
     {
         std::cout<<"No book with such ISBN try again : ";
