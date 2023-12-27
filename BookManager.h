@@ -21,7 +21,7 @@ class BookManager{
     void operator=(const BookManager&) = delete;
     void LoadDatabase();
     void AddBook(Book* book);
-    bool UpdateBook(std::string isbn,Book* newbook,std::string newISBN);
+    bool UpdateBook(std::string isbn,Book* newbook);
     bool DeleteBook(std::string isbn);
     Book* getBook(std::string isbn);
     const std::map<std::string,Book*>& get_isbn_to_book_map();

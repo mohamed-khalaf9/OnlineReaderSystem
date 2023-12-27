@@ -66,7 +66,7 @@ void Book::set_author(const std::string &author_){
 
 }
 void Book::set_pages(const std::vector<std::string> &pages_){
-    this->pages=pages;
+    this->pages=pages_;
 
 }
 std::string Book::Tostring() {

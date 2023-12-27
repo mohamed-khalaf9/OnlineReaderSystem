@@ -24,19 +24,30 @@
     isbn_to_book_map[book->get_ISBN()]=book;
 
  }
- bool BookManager::UpdateBook(std::string isbn,Book* newBook,std::string newISBN){
-     if (isbn_to_book_map.count(isbn)) {
-        
-        Book* bookToUpdate = isbn_to_book_map[isbn];
-        bookToUpdate->set_ISBN(newISBN);
-        bookToUpdate->set_title(newBook->get_title());
-        bookToUpdate->set_author(newBook->get_author());
-        bookToUpdate->set_pages(newBook->get_pages());
+ bool BookManager::UpdateBook(std::string isbn,Book* newBook){
+       auto it = isbn_to_book_map.find(isbn);
 
-        // If the old ISBN is different from the new ISBN, update the key in the map
-        if (isbn!= newISBN) {
-            isbn_to_book_map[newISBN] = bookToUpdate;
-            isbn_to_book_map.erase(isbn);
+    if (it != isbn_to_book_map.end()) {
+        // Update information in the map directly
+      it->second->set_ISBN(newBook->get_ISBN());
+      it->second->set_title(newBook->get_title());
+      it->second->set_author(newBook->get_author());
+      it->second->set_pages(newBook->get_pages());
+      
+
+
+        // If the old ISBN is different from the new ISBN
+        if (isbn != newBook->get_ISBN()) {
+            // Check if the new ISBN already exists in the map
+            auto existingIt = isbn_to_book_map.find(newBook->get_ISBN());
+            if (existingIt != isbn_to_book_map.end()) {
+                std::cout << "Cannot update ISBN to " << newBook->get_ISBN()<< ". ISBN already exists.\n";
+                return false;
+            }
+
+            // Update the key in the map
+            isbn_to_book_map[newBook->get_ISBN()] = std::move(it->second);
+            isbn_to_book_map.erase(it);
         }
 
         return true;
